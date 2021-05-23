@@ -40,11 +40,9 @@
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="lblFullName" min="-2" pref="85" max="-2" attributes="0"/>
-                                          <Component id="lblDOB" max="32767" attributes="0"/>
-                                          <Component id="lblEmail" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="lblFullName" min="-2" pref="85" max="-2" attributes="0"/>
+                                      <Component id="lblDOB" max="32767" attributes="0"/>
+                                      <Component id="lblEmail" alignment="0" max="32767" attributes="0"/>
                                       <Component id="lblContactNumber" pref="132" max="32767" attributes="0"/>
                                       <Component id="lblGender" alignment="1" max="32767" attributes="0"/>
                                       <Component id="lblAddress" alignment="1" min="-2" pref="76" max="-2" attributes="0"/>
@@ -57,7 +55,7 @@
                                   <Component id="jConfirmPassword" max="32767" attributes="0"/>
                                   <Component id="txtDOB" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtFullName" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtEmail" alignment="1" pref="230" max="32767" attributes="0"/>
+                                  <Component id="txtEmail" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtContactNumber" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="radMale" min="-2" pref="100" max="-2" attributes="0"/>
@@ -108,10 +106,12 @@
                   <Component id="txtContactNumber" pref="40" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblGender" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="radFemale" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="radMale" alignment="1" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblGender" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="radFemale" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -220,6 +220,10 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtContactNumberKeyPressed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtContactNumberKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCreateAccount">
       <Properties>
@@ -239,6 +243,9 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateAccountActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblFullName">
       <Properties>
@@ -355,7 +362,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
+        <Component class="javax.swing.JTextArea" name="jTextAreaAddress">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>

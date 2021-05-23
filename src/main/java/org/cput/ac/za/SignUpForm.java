@@ -1,6 +1,8 @@
 
 package org.cput.ac.za;
 
+import javax.swing.*;
+
 /**
  *
  * @author 214234169
@@ -34,7 +36,7 @@ public class SignUpForm extends javax.swing.JFrame {
         radMale = new javax.swing.JRadioButton();
         radFemale = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaAddress = new javax.swing.JTextArea();
         lblAddress = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
         lblConfirmPassword = new javax.swing.JLabel();
@@ -77,12 +79,25 @@ public class SignUpForm extends javax.swing.JFrame {
         txtContactNumber.setForeground(java.awt.SystemColor.controlShadow);
         txtContactNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtContactNumber.setBorder(new javax.swing.border.MatteBorder(null));
+        txtContactNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContactNumberKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContactNumberKeyTyped(evt);
+            }
+        });
 
         btnCreateAccount.setBackground(new java.awt.Color(102, 102, 102));
         btnCreateAccount.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         btnCreateAccount.setForeground(new java.awt.Color(255, 51, 51));
         btnCreateAccount.setText("Create Account");
         btnCreateAccount.setBorder(new javax.swing.border.MatteBorder(null));
+        btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateAccountActionPerformed(evt);
+            }
+        });
 
         lblFullName.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         lblFullName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -133,9 +148,9 @@ public class SignUpForm extends javax.swing.JFrame {
         radFemale.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         radFemale.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaAddress.setColumns(20);
+        jTextAreaAddress.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaAddress);
 
         lblAddress.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -164,10 +179,9 @@ public class SignUpForm extends javax.swing.JFrame {
                                 .addGap(15, 15, 15)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(lblFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblDOB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lblEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(lblFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblDOB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lblContactNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                                         .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,7 +192,7 @@ public class SignUpForm extends javax.swing.JFrame {
                                     .addComponent(jConfirmPassword)
                                     .addComponent(txtDOB, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtFullName, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtContactNumber, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(radMale, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,10 +229,11 @@ public class SignUpForm extends javax.swing.JFrame {
                     .addComponent(lblContactNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtContactNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(radFemale)
-                    .addComponent(radMale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(radMale, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(radFemale)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,8 +256,70 @@ public class SignUpForm extends javax.swing.JFrame {
 
     private void txtFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFullNameActionPerformed
         // TODO add your handling code here:
+      
     }//GEN-LAST:event_txtFullNameActionPerformed
 
+    private void txtContactNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactNumberKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactNumberKeyPressed
+
+    private void txtContactNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactNumberKeyTyped
+        // allow only numbers
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtContactNumberKeyTyped
+
+    private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
+        String fullName = txtFullName.getText();
+        String eMail = txtEmail.getText();
+        String DOB = txtDOB.getText();
+        String pass = String.valueOf(jPassword.getPassword());
+        String confirmPass = String.valueOf(jConfirmPassword.getPassword());
+        String contactNumber = txtContactNumber.getText();
+        String gender = "Male";
+
+        if(radFemale.isSelected()) {
+            gender = "Female";
+        }
+
+        if(verifyFields()){
+
+        }
+    }//GEN-LAST:event_btnCreateAccountActionPerformed
+    
+    //Method function to verify required fields
+    public boolean verifyFields(){
+      String fullName = txtFullName.getText();
+      String eMail = txtEmail.getText();
+      String DOB = txtDOB.getText();
+      String contactNumber = txtContactNumber.getText();
+      String genderMale = String.valueOf(radMale.isSelected());
+      String genderFemale = String.valueOf(radFemale.isSelected());
+      String address = jTextAreaAddress.getText();
+      String pass = String.valueOf(jPassword.getPassword());
+      String confirmPass = String.valueOf(jConfirmPassword.getPassword());
+
+    //Check if required fields are empty
+      if(fullName.trim().equals("") || eMail.trim().equals("") || DOB.trim().equals("") || contactNumber.trim().equals("")
+           || genderMale.trim().equals("") || genderFemale.trim().equals("") || address.trim().equals("")
+              || pass.trim().equals("") || confirmPass.trim().equals(""))
+      {
+          JOptionPane.showMessageDialog(null, "One or more required fields are empty","Empty Fields",2);
+          return false;
+      }
+      //Check if the two password fields are equal
+      else if (!pass.equals(confirmPass))
+        {
+            JOptionPane.showMessageDialog(null, "Password Incorrect. Try Again", "Incorrect Password",2);
+            return false;
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Account Successfully Created","Account Created",2);
+            return true;
+      }
+    }
+    
     public static void main(String args[]) {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -257,7 +334,7 @@ public class SignUpForm extends javax.swing.JFrame {
     private javax.swing.JPasswordField jConfirmPassword;
     private javax.swing.JPasswordField jPassword;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextAreaAddress;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblConfirmPassword;
     private javax.swing.JLabel lblContactNumber;
