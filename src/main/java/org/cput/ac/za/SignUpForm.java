@@ -1,7 +1,14 @@
 
 package org.cput.ac.za;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.ConnectException;
+import java.net.Socket;
 import javax.swing.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -148,6 +155,11 @@ public class SignUpForm extends javax.swing.JFrame {
         radFemale.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         radFemale.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
+        //Create Button Group for RadioButtons
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(radMale);
+        buttonGroup.add(radFemale);
+
         jTextAreaAddress.setColumns(20);
         jTextAreaAddress.setRows(5);
         jScrollPane1.setViewportView(jTextAreaAddress);
@@ -277,15 +289,7 @@ public class SignUpForm extends javax.swing.JFrame {
         String pass = String.valueOf(jPassword.getPassword());
         String confirmPass = String.valueOf(jConfirmPassword.getPassword());
         String contactNumber = txtContactNumber.getText();
-        String gender = "Male";
 
-        if(radFemale.isSelected()) {
-            gender = "Female";
-        }
-
-        if(verifyFields()){
-
-        }
     }//GEN-LAST:event_btnCreateAccountActionPerformed
     
     //Method function to verify required fields
