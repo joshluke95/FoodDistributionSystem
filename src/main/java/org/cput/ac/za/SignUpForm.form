@@ -52,7 +52,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jConfirmPassword" max="32767" attributes="0"/>
+                                  <Component id="txtConfirmPassword" max="32767" attributes="0"/>
                                   <Component id="txtDOB" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtFullName" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtEmail" alignment="1" max="32767" attributes="0"/>
@@ -63,7 +63,7 @@
                                       <Component id="radFemale" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jPassword" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -120,12 +120,12 @@
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jPassword" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="txtPassword" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="lblPassword" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jConfirmPassword" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="txtConfirmPassword" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="lblConfirmPassword" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -257,7 +257,7 @@
         <Property name="horizontalTextPosition" type="int" value="4"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="jPassword">
+    <Component class="javax.swing.JPasswordField" name="txtPassword">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
@@ -268,7 +268,7 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="jConfirmPassword">
+    <Component class="javax.swing.JPasswordField" name="txtConfirmPassword">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>

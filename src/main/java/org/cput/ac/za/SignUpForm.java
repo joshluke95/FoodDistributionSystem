@@ -1,14 +1,8 @@
 
 package org.cput.ac.za;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.ConnectException;
-import java.net.Socket;
+
 import javax.swing.*;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 /**
  *
@@ -34,8 +28,8 @@ public class SignUpForm extends javax.swing.JFrame {
         txtContactNumber = new javax.swing.JTextField();
         btnCreateAccount = new javax.swing.JButton();
         lblFullName = new javax.swing.JLabel();
-        jPassword = new javax.swing.JPasswordField();
-        jConfirmPassword = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
+        txtConfirmPassword = new javax.swing.JPasswordField();
         lblDOB = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         lblContactNumber = new javax.swing.JLabel();
@@ -111,13 +105,13 @@ public class SignUpForm extends javax.swing.JFrame {
         lblFullName.setText("Full Name:");
         lblFullName.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        jPassword.setBackground(java.awt.Color.darkGray);
-        jPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPassword.setBackground(java.awt.Color.darkGray);
+        txtPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jConfirmPassword.setBackground(java.awt.Color.darkGray);
-        jConfirmPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jConfirmPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtConfirmPassword.setBackground(java.awt.Color.darkGray);
+        txtConfirmPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtConfirmPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         lblDOB.setBackground(java.awt.Color.darkGray);
         lblDOB.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -201,7 +195,7 @@ public class SignUpForm extends javax.swing.JFrame {
                                     .addComponent(lblConfirmPassword))
                                 .addGap(37, 37, 37)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jConfirmPassword)
+                                    .addComponent(txtConfirmPassword)
                                     .addComponent(txtDOB, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtFullName, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -211,7 +205,7 @@ public class SignUpForm extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(radFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jPassword))))
+                                    .addComponent(txtPassword))))
                         .addGap(32, 32, 32))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,11 +246,11 @@ public class SignUpForm extends javax.swing.JFrame {
                     .addComponent(lblAddress))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblConfirmPassword))
                 .addGap(18, 18, 18)
                 .addComponent(btnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,7 +262,7 @@ public class SignUpForm extends javax.swing.JFrame {
 
     private void txtFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFullNameActionPerformed
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_txtFullNameActionPerformed
 
     private void txtContactNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactNumberKeyPressed
@@ -283,49 +277,39 @@ public class SignUpForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContactNumberKeyTyped
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
+        //Method function to verify required fields
         String fullName = txtFullName.getText();
         String eMail = txtEmail.getText();
         String DOB = txtDOB.getText();
-        String pass = String.valueOf(jPassword.getPassword());
-        String confirmPass = String.valueOf(jConfirmPassword.getPassword());
         String contactNumber = txtContactNumber.getText();
+        String genderMale = String.valueOf(radMale.isSelected());
+        String genderFemale = String.valueOf(radFemale.isSelected());
+        String address = jTextAreaAddress.getText();
+        String pass = String.valueOf(txtPassword.getPassword());
+        String confirmPass = String.valueOf(txtConfirmPassword.getPassword());
 
-    }//GEN-LAST:event_btnCreateAccountActionPerformed
-    
-    //Method function to verify required fields
-    public boolean verifyFields(){
-      String fullName = txtFullName.getText();
-      String eMail = txtEmail.getText();
-      String DOB = txtDOB.getText();
-      String contactNumber = txtContactNumber.getText();
-      String genderMale = String.valueOf(radMale.isSelected());
-      String genderFemale = String.valueOf(radFemale.isSelected());
-      String address = jTextAreaAddress.getText();
-      String pass = String.valueOf(jPassword.getPassword());
-      String confirmPass = String.valueOf(jConfirmPassword.getPassword());
+        //Check if required fields are empty
+        if(fullName.trim().equals("") || eMail.trim().equals("") || DOB.trim().equals("") || contactNumber.trim().equals("")
+                || genderMale.trim().equals("") || genderFemale.trim().equals("") || address.trim().equals("")
+                || pass.trim().equals("") || confirmPass.trim().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "One or more required fields are empty","Empty Fields",2);
 
-    //Check if required fields are empty
-      if(fullName.trim().equals("") || eMail.trim().equals("") || DOB.trim().equals("") || contactNumber.trim().equals("")
-           || genderMale.trim().equals("") || genderFemale.trim().equals("") || address.trim().equals("")
-              || pass.trim().equals("") || confirmPass.trim().equals(""))
-      {
-          JOptionPane.showMessageDialog(null, "One or more required fields are empty","Empty Fields",2);
-          return false;
-      }
-      //Check if the two password fields are equal
-      else if (!pass.equals(confirmPass))
+        }
+        //Check if the two password fields are equal
+        else if (!pass.equals(confirmPass))
         {
             JOptionPane.showMessageDialog(null, "Password Incorrect. Try Again", "Incorrect Password",2);
-            return false;
+
         }
         else {
             JOptionPane.showMessageDialog(null, "Account Successfully Created","Account Created",2);
-            return true;
-      }
-    }
-    
+        }
+
+    }//GEN-LAST:event_btnCreateAccountActionPerformed
+
     public static void main(String args[]) {
-       
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SignUpForm().setVisible(true);
@@ -335,8 +319,6 @@ public class SignUpForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateAccount;
-    private javax.swing.JPasswordField jConfirmPassword;
-    private javax.swing.JPasswordField jPassword;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaAddress;
     private javax.swing.JLabel lblAddress;
@@ -350,9 +332,11 @@ public class SignUpForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblSignUp;
     private javax.swing.JRadioButton radFemale;
     private javax.swing.JRadioButton radMale;
+    private javax.swing.JPasswordField txtConfirmPassword;
     private javax.swing.JTextField txtContactNumber;
     private javax.swing.JTextField txtDOB;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFullName;
+    private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
