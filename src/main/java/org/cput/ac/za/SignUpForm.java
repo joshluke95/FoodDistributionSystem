@@ -251,7 +251,7 @@ public class SignUpForm extends javax.swing.JFrame {
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
 
-        //Method function to verify required fields
+        //Method functions to verify required fields
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
         String eMail = txtEmail.getText();
